@@ -11,60 +11,46 @@
                               <div class="card-title">Add Episode</div>
                           </div>
                           <div class="card-body">
-                              <form class="" action="index.html" method="post">
+
+                              <form class="" action="{{route('add-episodes')}}" method="post" enctype="multipart/form-data">
+                                  @csrf
                                   <div class="row">
                                       <div class="col">
-                                          <input type="text" name="" class="form-control" value="" placeholder="Episode Title">
+                                          <input type="hidden" name="content_id" value="{{ $content->id }}">
+                                          <input type="text" name="title" class="form-control" value="" placeholder="Episode Title">
                                       </div>
                                       <div class="col">
-                                          <select class="form-control" name="">
-                                              <option selected="selected" value="">2018</option>
-                                              <option value="">2017</option>
-                                              <option value="">2016</option>
-                                              <option value="">2015</option>
-                                              <option value="">2014</option>
-                                              <option value="">2013</option>
-                                              <option value="">2012</option>
-                                              <option value="">2011</option>
-                                              <option value="">2010</option>
-                                              <option value="">2009</option>
-                                          </select>
+                                          <input type="text" name="url" class="form-control" value="" placeholder="Url">
                                       </div>
+
                                   </div>
                                   <hr>
                                   <div class="row">
                                       <div class="col">
-                                          <input type="number" name="" class="form-control" value="" placeholder="Episode Number">
+                                          <input type="number" name="duration" class="form-control" value="" placeholder="Duration">
                                       </div>
                                       <div class="col">
-                                          <input type="number" name="" class="form-control" value="" placeholder="Duration">
-                                      </div>
-                                  </div>
-                                  <hr>
-                                  <div class="row">
-                                      <div class="col">
-                                          <input type="text" name="" class="form-control" value="" placeholder="Url">
+                                          <input type="number" name="episode_number" class="form-control" value="" placeholder="Episode Number">
                                       </div>
                                       <div class="col">
-                                          <input type="text" name="" class="form-control" value="" placeholder="Tags">
+                                          <input type="number" name="year_released" class="form-control" value="" placeholder="Year Released">
                                       </div>
+
                                   </div>
                                   <hr>
                                   <div class="form-group">
-                                      <textarea class="form-control" placeholder="Description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                      <textarea class="form-control" name="description" placeholder="Description" id="exampleFormControlTextarea1" rows="3"></textarea>
                                   </div>
                                   <hr>
-                                  <div class="row">
-                                      <div class="col">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" required>
-                                            <label class="custom-file-label" for="customFile">Choose Thumbnail (Cover)</label>
-                                        </div>
-                                      </div>
+
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="thumbnail" id="customFile" required>
+                                    <label class="custom-file-label" for="customFile">Choose Thumbnail (Cover)</label>
                                   </div>
                                   <hr>
                                   <button type="submit" class="btn btn-primary" name="button">Add</button>
                               </form>
+
                           </div>
                       </div>
                   </div>

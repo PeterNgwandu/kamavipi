@@ -16,8 +16,8 @@
                           <a href="{{url('/admin/contets/summary')}}" class="dropdown-item dropdown-item-action ">View Content Summary</a>
                       </div>
                   </li>
-                   <li class="nav-item">
-                      <a href="#" class="nav-link" aria-expanded="false">Manage Categories</a>
+                  <li class="nav-item">
+                      <a href="{{ route('cat-tag') }}" class="nav-link" aria-expanded="false">Manage Categories</a>
                   </li>
                   <!--<li class="nav-item dropdown">
                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Layouts</a>
@@ -63,7 +63,7 @@
                           <a href="forgot-password.html" class="dropdown-item">Forgot Password</a>
                       </div>
                   </li> -->
-                  <li class="nav-item nav-link flex-auto">
+                  <!-- <li class="nav-item nav-link flex-auto">
                       <div class="form-group m-0">
                           <div class="input-group input-group--inline">
                               <div class="input-group-addon">
@@ -72,7 +72,7 @@
                               <input type="text" class="form-control" name="search">
                           </div>
                       </div>
-                  </li>
+                  </li> -->
               </ul>
               <ul class="navbar-nav">
 

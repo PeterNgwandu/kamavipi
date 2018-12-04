@@ -1,0 +1,13 @@
+#flash {
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    right: 20px;
+}
+
+#flash-category {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 10px;
+}

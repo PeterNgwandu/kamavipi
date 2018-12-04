@@ -140,6 +140,8 @@
 
 <script src="{{url('assets/admin/assets/vendor/jquery.dataTables.js')}}"></script>
 <script src="{{url('assets/admin/assets/vendor/dataTables.bootstrap4.js')}}"></script>
+<script src="{{url('assets/admin/assets/js/snackbar.js')}}"></script>
+
 
 <script>
     $('#data-table').dataTable();

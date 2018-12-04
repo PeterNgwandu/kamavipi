@@ -22,7 +22,12 @@
 // Admin Routes
 Route::get('/admin', 'AdminController@index')->name('/admin');
 Route::get('/admin/content/create', 'AdminController@create')->name('content.create');
-Route::get('/admin/add/episodes', 'AdminController@addEpisodes')->name('episodes');
+Route::post('/admin/content/create', 'AdminController@createContent')->name('create');
+Route::get('/admin/add/episodes/{id}', 'AdminController@addEpisodes')->name('episodes');
+Route::post('/admin/add/episodes', 'AdminController@createEpisode')->name('add-episodes');
+Route::get('/admin/manage/category', 'ManageCategoryController@index')->name('cat-tag');
+Route::post('/admin/create', 'ManageCategoryController@store')->name('category');
+Route::get('category/{id}', 'ManageCategoryController@destroy');
 
 Route::get('/', 'MoviesController@index')->name('home');
 Route::get('/movie/movie-detail', 'MoviesController@show');
@@ -33,4 +38,6 @@ Route::post('/login', 'SessionsController@store');
 Route::get('/logout', 'SessionsController@destroy');
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
-Route::get('/movie/stream', 'MoviesController@streamMovie');
+
+Route::get('/movie/stream/{id}', 'MoviesController@streamMovie');
+Route::get('/movie/stream/single-movie/{id}', 'MoviesController@streamMovieSingle');

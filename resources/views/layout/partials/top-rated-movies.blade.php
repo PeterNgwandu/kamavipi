@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-8 col-xs-6">
                 <div class="section-header">
-                    <h2 class="section-title section-color">Latest Series {{ now()->year }}</h2>
+                    <h2 class="section-title section-color">Latest Movies {{ now()->year }}</h2>
                 </div>
             </div>
             <div class="col-sm-4 col-xs-6">
@@ -14,142 +14,24 @@
 
         <div class="row">
             <div class="owl-carousel video-carousel tvshow-carousel" id="tvshow-carousel">
-                <div class="video-item">
-                    <div class="thumb-wrap">
-                        <img src="images/movies/five.png" alt="Movie Thumb">
-                        <span class="rating">9.2</span>
-                        <div class="thumb-hover">
-                            <a class="play-video" href="https://www.youtube.com/watch?v=5cY5PHE4x_g"><i class="fa fa-play"></i></a>
-                            <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">Wonder Women</p>
-                            <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
+                @foreach($content as $movie)
+                  @if($movie->category->name == 'Movie')
+                    <div class="video-item">
+                        <div class="thumb-wrap">
+                            <img src="{{asset('uploads/images/'.$movie->thumbnail)}}" alt="{{ $movie->title }}">
+                            <span class="rating">9.2</span>
+                            <div class="thumb-hover">
+                                <!-- <a class="play-video" href="{{ $movie->url }}"><i class="fa fa-play"></i></a> -->
+                                <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">{{ $movie->title }}</p>
+                                <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
+                                <div style="margin-top:60px" class="text-center">
+                                    <a href="{{url('movie/stream/single-movie/'.$movie->id)}}" style="color:#ffffff;" id="next" class="mybtn mybtn-purple continue text-white">Play</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- <div class="video-details">
-                        <h4 class="video-title"><a href="movie-detail.html">Wonder Women</a></h4>
-                        <p class="video-release-on">22 Jun 2017 &nbsp;
-                          <span><a href="" class="text-info">Details</a></span>
-                        </p>
-                    </div> -->
-                </div>
-                <div class="video-item">
-                    <div class="thumb-wrap">
-                        <img src="images/movies/one.png" alt="Movie Thumb">
-                        <span class="rating">9.2</span>
-                        <div class="thumb-hover">
-                            <a class="play-video" href="https://www.youtube.com/watch?v=5cY5PHE4x_g"><i class="fa fa-play"></i></a>
-                            <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">Wonder Women</p>
-                            <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
-                        </div>
-                    </div>
-                    <!-- <div class="video-details">
-                        <h4 class="video-title"><a href="movie-detail.html">Captain America</a></h4>
-                        <p class="video-release-on">22 Jun 2017 &nbsp;
-                          <span><a href="" class="text-info">Details</a></span>
-                        </p>
-                    </div> -->
-                </div>
-                <div class="video-item">
-                    <div class="thumb-wrap">
-                        <img src="images/movies/three.png" alt="Movie Thumb">
-                        <span class="rating">9.2</span>
-                        <div class="thumb-hover">
-                            <a class="play-video" href="https://www.youtube.com/watch?v=5cY5PHE4x_g"><i class="fa fa-play"></i></a>
-                            <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">Wonder Women</p>
-                            <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
-                        </div>
-                    </div>
-                    <!-- <div class="video-details">
-                        <h4 class="video-title"><a href="movie-detail.html">The City Truck</a></h4>
-                        <p class="video-release-on">22 Jun 2017 &nbsp;
-                          <span><a href="" class="text-info">Details</a></span>
-                        </p>
-                    </div> -->
-                </div>
-                <div class="video-item">
-                    <div class="thumb-wrap">
-                        <img src="images/movies/two.png" alt="Movie Thumb">
-                        <span class="rating">9.2</span>
-                        <div class="thumb-hover">
-                            <a class="play-video" href="https://www.youtube.com/watch?v=5cY5PHE4x_g"><i class="fa fa-play"></i></a>
-                            <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">Wonder Women</p>
-                            <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
-                        </div>
-                    </div>
-                    <!-- <div class="video-details">
-                        <h4 class="video-title"><a href="movie-detail.html">Dark Night 2</a></h4>
-                        <p class="video-release-on">22 Jun 2017 &nbsp;
-                          <span><a href="" class="text-info">Details</a></span>
-                        </p>
-                    </div> -->
-                </div>
-                <div class="video-item">
-                    <div class="thumb-wrap">
-                        <img src="images/movies/four.png" alt="Movie Thumb">
-                        <span class="rating">9.2</span>
-                        <div class="thumb-hover">
-                            <a class="play-video" href="https://www.youtube.com/watch?v=5cY5PHE4x_g"><i class="fa fa-play"></i></a>
-                            <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">Wonder Women</p>
-                            <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
-                        </div>
-                    </div>
-                    <!-- <div class="video-details">
-                        <h4 class="video-title"><a href="movie-detail.html">Wonder Women</a></h4>
-                        <p class="video-release-on">22 Jun 2017 &nbsp;
-                          <span><a href="" class="text-info">Details</a></span>
-                        </p>
-                    </div> -->
-                </div>
-                <div class="video-item">
-                    <div class="thumb-wrap">
-                        <img src="images/movies/one.png" alt="Movie Thumb">
-                        <span class="rating">9.2</span>
-                        <div class="thumb-hover">
-                            <a class="play-video" href="https://www.youtube.com/watch?v=5cY5PHE4x_g"><i class="fa fa-play"></i></a>
-                            <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">Wonder Women</p>
-                            <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
-                        </div>
-                    </div>
-                    <!-- <div class="video-details">
-                        <h4 class="video-title"><a href="movie-detail.html">Captain America</a></h4>
-                        <p class="video-release-on">22 Jun 2017 &nbsp;
-                          <span><a href="" class="text-info">Details</a></span>
-                        </p>
-                     </div> -->
-                </div>
-                <div class="video-item">
-                    <div class="thumb-wrap">
-                        <img src="images/movies/two.png" alt="Movie Thumb">
-                        <span class="rating">9.2</span>
-                        <div class="thumb-hover">
-                            <a class="play-video" href="https://www.youtube.com/watch?v=5cY5PHE4x_g"><i class="fa fa-play"></i></a>
-                            <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">Wonder Women</p>
-                            <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
-                        </div>
-                    </div>
-                    <!-- <div class="video-details">
-                        <h4 class="video-title"><a href="movie-detail.html">The City Truck</a></h4>
-                        <p class="video-release-on">22 Jun 2017 &nbsp;
-                          <span><a href="" class="text-info">Details</a></span>
-                        </p>
-                    </div> -->
-                </div>
-                <div class="video-item">
-                    <div class="thumb-wrap">
-                        <img src="images/movies/three.png" alt="Movie Thumb">
-                        <span class="rating">9.2</span>
-                        <div class="thumb-hover">
-                            <a class="play-video" href="https://www.youtube.com/watch?v=5cY5PHE4x_g"><i class="fa fa-play"></i></a>
-                            <p style="margin-top:80px;font-weight:bold;color:#ffffff" class="text-center video-title">Wonder Women</p>
-                            <p style="margin-top:-10px;font-weight:bold;color:#ffffff" class="text-center">{{ now()->year }}</p>
-                        </div>
-                    </div>
-                    <!-- <div class="video-details">
-                        <h4 class="video-title"><a href="movie-detail.html">Dark Night 2</a></h4>
-                        <p class="video-release-on">22 Jun 2017 &nbsp;
-                          <span><a href="" class="text-info">Details</a></span>
-                        </p>
-                    </div> -->
-                </div>
+                  @endif
+                @endforeach
             </div>
         </div>
     </div>

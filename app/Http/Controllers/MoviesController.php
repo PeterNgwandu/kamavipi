@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Content;
+use App\Episode;
+use App\Category;
 use Illuminate\Http\Request;
 
 class MoviesController extends Controller
@@ -13,7 +16,9 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        return view('layout/movies.home');
+        $content = Content::latest()->get();
+        $categories = Category::all();
+        return view('layout/movies.home', compact('content', 'categories'));
     }
 
     /**
@@ -92,9 +97,21 @@ class MoviesController extends Controller
         //
     }
 
-    public function streamMovie()
+    public function streamMovie($id)
     {
-        return view('layout/movies.streaming');
+        if (isset($id)) {
+            $episodes = Episode::where('content_id', '=', $id)->get();
+            // dd($episodes);
+        }
+        return view('layout/movies.streaming', compact('episodes'));
+    }
+
+    public function streamMovieSingle($id)
+    {
+        $movie = Content::findOrFail($id);
+        $content = Content::latest()->get();
+        $related_movies = Content::where('id','<>',$id)->get()->unique();
+        return view('layout/movies.single-movie', compact('movie', 'content','related_movies'));
     }
 
 

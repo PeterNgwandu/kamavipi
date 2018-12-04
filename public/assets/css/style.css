@@ -1227,6 +1227,7 @@ Movies Page Styles
   font-size: 1.6rem;
   margin-top: 5px;
   margin-bottom: 0;
+  color: #FBF1EF;
 }
 .video-list .video-item .video-details .ratings-wrap {
   float: left;
@@ -1310,6 +1311,7 @@ Movies Page Styles
   float: left;
   width: 100%;
   clear: both;
+  color: #FBF1EF;
 }
 .video-attributes p {
   font-size: 1.5rem;
@@ -1444,7 +1446,7 @@ Single Movie Styles
 .video-single .content-wrap .video-details .video-title {
   font-size: 3rem;
   margin: 0;
-  color: #111111;
+  color: #FBF1EF;
 }
 .video-single .content-wrap .video-details .video-title a {
   color: inherit;
@@ -1456,6 +1458,7 @@ Single Movie Styles
   font-size: 1.6rem;
   margin-top: 5px;
   margin-bottom: 0;
+  color: #FBF1EF;
 }
 .video-single .content-wrap .video-details .ratings-wrap {
   float: left;
@@ -1531,6 +1534,7 @@ Single Movie Styles
 }
 .single-section .section-content p {
   margin-bottom: 35px;
+  color: #FBF1EF;
 }
 .single-section .section-content p:last-child {
   margin-bottom: 0;
