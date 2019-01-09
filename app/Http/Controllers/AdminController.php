@@ -7,6 +7,7 @@ use App\Content;
 use App\Episode;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -26,6 +27,83 @@ class AdminController extends Controller
     {
         $content = Content::findOrFail($id);
         return view('admin.contents.episodes', compact('content'));
+    }
+
+    public function deleteSeries($id)
+    {
+        $series = Content::findOrFail($id);
+        if (isset($series))
+        {
+            $series->delete();
+            return view('admin.contents.delete-series', compact('series'));
+        }
+    }
+
+    public function editSeries($id)
+    {
+       $categories = Category::where('categories.name','Series')->get();
+       $series = Content::findOrFail($id);
+       return view('admin.contents.edit-series', compact('series','categories'));
+    }
+
+    public function updateSeries(Request $request, $id)
+    {
+        $series = Content::findOrFail($id);
+        $categories = Category::where('categories.name','Series')->get();
+        if (isset($series))
+        {
+            $series->update([
+                'title' => $request->input('title'),
+                'url' => $request->input('url'),
+                'duration' => $request->input('duration'),
+                'year_released' => $request->input('year_released'),
+                'category_id' => $request->input('category_id'),
+                'description' => $request->input('description'),
+            ]);
+
+            return view('admin.contents.edit-series', compact('series','categories'));
+        }
+    }
+
+    public function manageMovies()
+    {
+        $movie = Content::all();
+        return view('admin.contents.manage-movies', compact('movie'));
+    }
+
+    public function deleteMovie($id)
+    {
+        $movie = Content::findOrFail($id);
+        if (isset($movie))
+        {
+            $movie->delete();
+            return view('admin.contents.delete-movie', compact('movie'));
+        }
+    }
+
+    public function editMovie($id)
+    {
+        $movie = Content::findOrFail($id);
+        $categories = Category::all();
+        return view('admin.contents.edit-movie', compact('movie','categories'));
+    }
+
+    public function updateMovie(Request $request, $id)
+    {
+        $movie = Content::findOrFail($id);
+        if (isset($movie))
+        {
+          $movie->update([
+              'title' => $request->input('title'),
+              'url' => $request->input('url'),
+              'duration' => $request->input('duration'),
+              'year_released' => $request->input('year_released'),
+              'category_id' => $request->input('category_id'),
+              'description' => $request->input('description'),
+          ]);
+        }
+
+        return redirect()->back();
     }
 
     public function createContent(Request $request)

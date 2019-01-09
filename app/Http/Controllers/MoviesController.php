@@ -21,6 +21,33 @@ class MoviesController extends Controller
         return view('layout/movies.home', compact('content', 'categories'));
     }
 
+    public function upcommings()
+    {
+        $content = Content::all();
+        return view('layout/movies.home', compact('content'));
+    }
+
+    public function series()
+    {
+        $series = Content::where('contents.category_id', 2)->get();
+        $category = Category::where('categories.name','Series')->get();
+        return view('layout/movies.home', compact('series','category'));
+    }
+
+    public function search(Request $request)
+    {
+        $searchResult = null;
+        $item = $request->search;
+        $content = Content::where('title','LIKE',$item)->get();
+        if (count($content) == 0) {
+            $searchResult = 'No content found';
+        }
+        foreach ($content as $movie) {
+            $searchResult[] = $movie->title;
+        }
+        return $searchResult;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -103,7 +130,8 @@ class MoviesController extends Controller
             $episodes = Episode::where('content_id', '=', $id)->get();
             // dd($episodes);
         }
-        return view('layout/movies.streaming', compact('episodes'));
+        $content = Content::all();
+        return view('layout/movies.streaming', compact('episodes','content'));
     }
 
     public function streamMovieSingle($id)

@@ -29,6 +29,17 @@ Route::get('/admin/manage/category', 'ManageCategoryController@index')->name('ca
 Route::post('/admin/create', 'ManageCategoryController@store')->name('category');
 Route::get('category/{id}', 'ManageCategoryController@destroy');
 
+Route::get('/series/delete/{id}', 'AdminController@deleteSeries');
+Route::get('/series/edit/{id}', 'AdminController@editSeries');
+Route::post('/series/update/{id}', 'AdminController@updateSeries');
+
+Route::get('/contents/movies', 'AdminController@manageMovies');
+Route::get('/movie/edit/{id}', 'AdminController@editMovie');
+Route::post('/movie/edit/{id}', 'AdminController@updateMovie');
+Route::get('/movie/delete/{id}', 'AdminController@deleteMovie');
+
+Route::get('/', 'MoviesController@series');
+
 Route::get('/', 'MoviesController@index')->name('home');
 Route::get('/movie/movie-detail', 'MoviesController@show');
 Route::get('/movies/new-movies', 'MoviesController@showNewMovies');
@@ -41,3 +52,5 @@ Route::post('/register', 'RegistrationController@store');
 
 Route::get('/movie/stream/{id}', 'MoviesController@streamMovie');
 Route::get('/movie/stream/single-movie/{id}', 'MoviesController@streamMovieSingle');
+
+Route::get('search', 'MoviesController@search');

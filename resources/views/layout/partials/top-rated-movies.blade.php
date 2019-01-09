@@ -1,10 +1,10 @@
 <!-- TV Show Section -->
-<div class="section section-padding tvshow-section">
+<div class="section section-padding tvshow-section" style="margin-top:-50px !important;">
     <div class="container">
         <div class="row">
             <div class="col-sm-8 col-xs-6">
                 <div class="section-header">
-                    <h2 class="section-title section-color">Latest Movies {{ now()->year }}</h2>
+                    <h4 class="section-title section-color">Movies {{ now()->year }}</h4>
                 </div>
             </div>
             <div class="col-sm-4 col-xs-6">

@@ -89,6 +89,7 @@
                                         </thead>
                                         <tbody>
                                           @foreach($content as $movie)
+                                            @if($movie->category_id == 2)
                                             <tr>
                                                 <td>{{ $movie->title }}</td>
                                                 <td>{{ $movie->category->name }}</td>
@@ -98,8 +99,15 @@
                                                         <a class="btn btn-primary" href="{{ url('admin/add/episodes/'.$movie->id) }}">
                                                           Add Episodes
                                                         </a>
+                                                        <a class="btn btn-danger" href="{{ url('/series/delete/'.$movie->id) }}">
+                                                          Delete
+                                                        </a>
+                                                        <a class="btn btn-success" href="{{ url('/series/edit/'.$movie->id) }}">
+                                                          Edit
+                                                        </a>
                                                 </td>@endif
                                             </tr>
+                                            @endif
                                           @endforeach
                                         </tbody>
                                       </table>

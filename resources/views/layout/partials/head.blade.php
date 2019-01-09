@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{url('assets/css/responsive.css')}}">
 
     <!-- intlTelInput CSS -->
-    <link rel="stylesheet" href="{{url('assets/css/intlTelInput.css')}}">
+    <!-- <link rel="stylesheet" href="{{url('assets/css/intlTelInput.css')}}"> -->
 
     <!-- Google Fonts -->
     <!-- <link href="../../../fonts.googleapis.com/css9801.css?family=Poppins:300,400,500,600" rel="stylesheet"> -->
@@ -32,6 +32,8 @@
     <link rel="apple-touch-icon" sizes="72x72" href="{{url('images/template/icon-72x72.png')}}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{url('images/template/icon-114x114.png')}}">
 
+    <!-- JQuery UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

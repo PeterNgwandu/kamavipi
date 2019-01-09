@@ -22,7 +22,7 @@
                     <div style="margin-top:3%" class="col col-md-10">
                       <div class="inner-addon right-addon">
                           <i class="glyphicon glyphicon-search"></i>
-                          <input type="text" name="search" class="form-control" placeholder="Search Here" value="">
+                          <input type="text" name="search" id="search" class="form-control" placeholder="Search Here" value="">
                       </div>
                     </div>
                 </div>
@@ -73,8 +73,42 @@
 
                   </li>
                 @endif
+
+                <!-- <li style="font-weight: bold;"><a href="news.html">Upcomming <span style="background-color:#C70039;margin-top:-5px;" class="badge">3</span> </a></li> -->
+
+                <li class="dropdown" style="font-weight: bold;">
+                    <a href="news.html">Upcomming <span style="background-color:#C70039;margin-top:-5px;" class="badge">3</span> </a>
+                    <ul class="dropdown-menu notify-drop">
+                      <div class="notify-drop-title">
+                      	<div class="row">
+                      		<div class="col-md-6 col-sm-6 col-xs-6">Upcommings</div>
+                      		<div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="" class="rIcon allRead" data-tooltip="tooltip" data-placement="bottom" title="tümü okundu."><i class="fa fa-dot-circle-o"></i></a></div>
+                      	</div>
+                      </div>
+                      <!-- end notify title -->
+                      <!-- notify content -->
+                      <div class="drop-content">
+                        @foreach($content as $movie)
+                      	<li>
+                      		<div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img img-responsive"><img style="height:50px;width:50px;" src="{{asset('uploads/images/'.$movie->thumbnail)}}" alt=""></div></div>
+                      		<div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="">{{$movie->title}}</a><a href="" class="rIcon"><i class="fa fa-dot-circle-o"></i></a><br>
+                      		<p class="time">Year Released {{$movie->created_at->format('m-d-y')}}</p>
+                      		</div>
+                      	</li>
+                        @endforeach
+                      </div>
+
+                    </ul>
+                </li>
+
+                <li>
             </ul>
         </div>
     </div>
 </nav>
 <!-- Main Header End -->
+<script>
+    $(function () {
+  $('[data-tooltip="tooltip"]').tooltip()
+	});
+</script>

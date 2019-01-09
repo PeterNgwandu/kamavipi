@@ -13,6 +13,7 @@
                       <a href="{{url('/admin')}}" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Contents</a>
                       <div class="dropdown-menu">
                           <a href="{{route('content.create')}}" class="dropdown-item dropdown-item-action">Create Contents</a>
+                          <a href="{{url('/contents/movies')}}" class="dropdown-item dropdown-item-action">Manage Contents</a>
                           <a href="{{url('/admin/contets/summary')}}" class="dropdown-item dropdown-item-action ">View Content Summary</a>
                       </div>
                   </li>
