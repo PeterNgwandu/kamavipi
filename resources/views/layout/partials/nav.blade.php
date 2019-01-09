@@ -17,7 +17,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main-nav-collapse">
-            <form class="navbar-form navbar-left">
+            <form class="navbar-form navbar-right" style="margin-right:-70px;">
                 <div class="row">
                     <div style="margin-top:3%" class="col col-md-10">
                       <div class="inner-addon right-addon">
@@ -40,19 +40,19 @@
                         <li><a href="/movies/movie-list">Musical</a></li>
                         <li><a href="/movies/movie-list">Wars</a></li>
                     </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Pages</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="movie-list.html">Movies</a></li>
-                        <li><a href="movie-detail.html">Movie Detail</a></li>
-                        <li><a href="tv-show.html">TV Show</a></li>
-                        <li><a href="celebrities.html">Celebrities</a></li>
-                        <li><a href="celebrity-detail.html">Celebrity Details</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="news-detail.html">News Details</a></li>
-                    </ul>
                 </li> -->
+                <li style="font-weight: bold;">
+                    <a href="{{url('/')}}">Home</a>
+                </li>
+                <li style="font-weight: bold;">
+                    <a href="#">Movies</a>
+                </li>
+                <li style="font-weight: bold;">
+                    <a href="#">Series</a>
+                </li>
+                <li style="font-weight: bold;">
+                    <a href="#">Music</a>
+                </li>
                 @if(Auth::check())
                   <li style="font-weight: bold;"><a href="news.html">SUGGESTED <span style="background-color:#4A235A;margin-top:-5px;" class="badge">3</span> </a></li>
                   <li>
@@ -77,11 +77,11 @@
                 <!-- <li style="font-weight: bold;"><a href="news.html">Upcomming <span style="background-color:#C70039;margin-top:-5px;" class="badge">3</span> </a></li> -->
 
                 <li class="dropdown" style="font-weight: bold;">
-                    <a href="news.html">Upcomming <span style="background-color:#C70039;margin-top:-5px;" class="badge">3</span> </a>
+                    <a href="news.html">Comming Soon <span style="background-color:#C70039;margin-top:-5px;" class="badge">3</span> </a>
                     <ul class="dropdown-menu notify-drop">
                       <div class="notify-drop-title">
                       	<div class="row">
-                      		<div class="col-md-6 col-sm-6 col-xs-6">Upcommings</div>
+                      		<div class="col-md-6 col-sm-6 col-xs-6">Comming Soon</div>
                       		<div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="" class="rIcon allRead" data-tooltip="tooltip" data-placement="bottom" title="tümü okundu."><i class="fa fa-dot-circle-o"></i></a></div>
                       	</div>
                       </div>
